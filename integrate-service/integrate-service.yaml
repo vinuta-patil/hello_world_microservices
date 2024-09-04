@@ -1,0 +1,35 @@
+# Deployment for Integrate Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integrate-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: integrate-service
+  template:
+    metadata:
+      labels:
+        app: integrate-service
+    spec:
+      containers:
+        - name: integrate-service
+          image: vinutapatil/integrate-service:latest
+          ports:
+            - containerPort: 8080
+
+---
+# Service for Integrate Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: integrate-service
+spec:
+  type: NodePort
+  selector:
+    app: integrate-service
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30002

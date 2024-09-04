@@ -1,0 +1,35 @@
+# Deployment for Hello Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+        - name: hello
+          image: vinutapatil/hello-service:latest
+          ports:
+            - containerPort: 8080
+
+---
+# Service for Hello Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-service
+spec:
+  type: NodePort
+  selector:
+    app: hello
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30000
