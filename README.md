@@ -51,7 +51,7 @@ After running the container springboot application is accessible http://localhos
    kubectl apply -f world-service.yaml
 -> To check the deployment and services status:
    kubectl get deployments
-   kubectl get services
+   kubectl get services 
 -> Get the urls for the services hello and world:
    minikube service hello-service -n default --url
    minikube service world-service -n default --url
