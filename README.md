@@ -54,7 +54,7 @@ After running the container springboot application is accessible http://localhos
    kubectl get services 
 -> Get the urls for the services hello and world:
    minikube service hello-service -n default --url
-   minikube service world-service -n default --url
+   minikube service world-service -n default --url 
 The above commands gives the new url for each run.
 6. Integration testing
  written a simple integration test script to call both the services and to combine their responses.
