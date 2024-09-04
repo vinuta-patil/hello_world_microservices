@@ -56,7 +56,7 @@ After running the container springboot application is accessible http://localhos
    minikube service hello-service -n default --url
    minikube service world-service -n default --url 
 The above commands gives the new url for each run.
-6. Integration testing
+6. Integration testing 
  written a simple integration test script to call both the services and to combine their responses.
  file name: helloworld.ps1
 7. Update the hello_url and world_url in helloworld.ps1 each time we run the hello-service and world-service.
